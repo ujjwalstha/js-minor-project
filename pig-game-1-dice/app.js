@@ -31,7 +31,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
             // get random dice image
             diceDOM = document.querySelector('.dice');
             diceDOM.style.display = 'block';
-            diceDOM.src = 'dice-' + dice + '.png';
+            diceDOM.src = 'images/dice-' + dice + '.png';
 
             // updating round score if dice roll no is not 1
             if (dice !== 1) {
