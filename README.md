@@ -3,3 +3,4 @@ This repo includes some of the minor JS projects which were done while practisin
 
 ## Project's List:
 * Pig Game - 1 Dice
+* Pig Game - 2 Dices
