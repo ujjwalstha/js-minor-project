@@ -25,6 +25,8 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
         // Check if final score is set or not
         if (finalScore) {
+            document.getElementById('final-score').setAttribute('disabled', 'true');
+
             // generate random dice no
             var dice = Math.floor(Math.random() * 6) + 1;
 
@@ -43,7 +45,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
             }
 
         } else {
-            alert('Set final score first.');
+            alert('SET FINAL SCORE FIRST!');
         }
         
     }
@@ -68,10 +70,14 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 
             // winner
             if (score[activePlayer] >= finalScore) {
+
+                var inactivePlayer = (activePlayer === 0) ? 1 : 0; // gets inactive player
+
                 hideDice();
-                document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
                 document.querySelector('.player-'+activePlayer+'-panel').classList.remove('active');
                 document.querySelector('.player-'+activePlayer+'-panel').classList.add('winner');
+                document.getElementById('winner-'+activePlayer).style.display = 'block';
+                document.getElementById('looser-'+inactivePlayer).style.display = 'block';
 
                 // set game play to false after the player wins
                 gamePlaying = false; 
@@ -82,7 +88,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
             }
 
         } else {
-            alert('Set final score first.');
+            alert('SET FINAL SCORE FIRST!');
         }
     }    
 });
@@ -129,10 +135,6 @@ function init() {
     document.getElementById('score-1').textContent = 0;
     document.getElementById('current-1').textContent = 0;
 
-    // Displaying text in UI
-    document.getElementById('name-0').textContent = 'Player 1';
-    document.getElementById('name-1').textContent = 'Player 2';
-
     // removes winner class from both player's panel
     document.querySelector('.player-0-panel').classList.remove('winner');
     document.querySelector('.player-1-panel').classList.remove('winner');
@@ -143,6 +145,24 @@ function init() {
 
     // adds active class in player1's panel
     document.querySelector('.player-0-panel').classList.add('active');
+
+    // removes winner looser board from both player
+    document.getElementById('winner-0').style.display = 'none';
+    document.getElementById('looser-0').style.display = 'none';
+    document.getElementById('winner-1').style.display = 'none';
+    document.getElementById('looser-1').style.display = 'none';
+
+    // Removing the attribute 'disabled' and resetting value from final score input field 
+    document.getElementById('final-score').removeAttribute('disabled');
+    document.getElementById('final-score').value = '';
+
+    // Prompt to ask both player's name
+    var player1 = prompt('WELCOME TO PIG DICE GAME!\r\nPlease enter first player\'s name.');
+    var player2 = prompt('Please enter second player\'s name.');
+
+    // Displaying text in UI
+    document.getElementById('name-0').textContent = player1 ? player1 : 'Player 1';
+    document.getElementById('name-1').textContent = player2 ? player2 : 'Player 2';
 }
 
 /**

@@ -30,7 +30,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(images/back.jpg);
+    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(../images/back.jpg);
     background-size: cover;
     background-position: center;
     font-family: Lato;
@@ -60,17 +60,37 @@ body {
 }
 
 
+/**********************************************
+*** RESULT BOARD
+**********************************************/
+
+.winner-board, .looser-board {
+    font-size: 35px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: relative;
+}
+
+.winner-board {
+    color: #87c540;
+}
+
+.looser-board {
+    color: #eb4d4d;
+}
 
 /**********************************************
 *** PLAYERS
 **********************************************/
 
 .player-name {
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: 100;
+    font-weight: 300;
     margin-top: 20px;
     margin-bottom: 10px;
     position: relative;
@@ -79,21 +99,21 @@ body {
 .player-score {
     text-align: center;
     font-size: 80px;
-    font-weight: 100;
+    font-weight: 200;
     color: #EB4D4D;
     margin-bottom: 130px;
 }
 
-.active { background-color: #f7f7f7; }
+.active { background-color: #f1f3f4; }
 .active .player-name { font-weight: 300; }
 
 .active .player-name::after {
-    content: "\2022";
-    font-size: 47px;
+    content: "\272A";
+    font-size: 25px;
     position: absolute;
     color: #EB4D4D;
-    top: -7px;
-    right: 10px;
+    top: 1px;
+    right: 1px;
     
 }
 
@@ -111,6 +131,7 @@ body {
     margin-bottom: 10px;
     font-size: 12px;
     color: #222;
+    font-weight: bold;
 }
 
 .player-current-score {
@@ -129,11 +150,11 @@ button {
     font-size: 20px;
     text-transform: uppercase;
     cursor: pointer;
-    font-weight: 300;
+    font-weight: 600;
     transition: background-color 0.3s, color 0.3s;
 }
 
-button:hover { font-weight: 600; }
+button:hover { font-weight: 600; color: #EB4D4D; transition: color 0.3s;}
 button:hover i { margin-right: 20px; }
 
 button:focus {
@@ -164,5 +185,20 @@ i {
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
 }
 
-.winner { background-color: #f7f7f7; }
+.winner { background-color: #f1d9f9; }
 .winner .player-name { font-weight: 300; color: #EB4D4D; }
+
+button.ion-ios-help {
+    position: absolute;
+    left: 96%;
+    transform: translateX(-50%);
+    bottom: 540px;
+    color: #eb4d4d;
+    font-size: 32px;
+    transition: 0.3s;
+}
+
+button.ion-ios-help:hover {
+    font-size: 35px;
+    transition: 0.3s;
+}
