@@ -1,4 +1,5 @@
 # Description
+Version: 1.0
 This is a pig game with 1 dice.
 
 ## Game Rules:
